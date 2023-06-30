@@ -1,7 +1,49 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
 const Hero = () => {
+  const [images, setImages] = useState(1);
+  const fadeInVariant = {
+    initial: {
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1.4,
+      },
+    },
+    exit: {
+      y: -100,
+      opacity: 0,
+    },
+  };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setImages((prev) => {
+        if (prev === 4) {
+          return 1;
+        } else {
+          return (prev += 1);
+        }
+      });
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [images]);
+
   return (
-    <section className="wrapper pt-3 sm:pt-8 lg:pt-[80px]">
-      <div className="contain lg:flex-row flex-col justify-between gap-6 sm:gap-10 items-start">
+    <section className="wrapper ">
+      <div className="contain pt-3 sm:pt-8 lg:pt-[80px] min-h-[700px] h-screen relative isolate lg:flex-row flex-col justify-between gap-6 sm:gap-10 items-start">
+        <img
+          src="/glow.svg"
+          className="absolute max-w-full left-1/2 -translate-x-1/2 bottom-0 -z-10"
+          alt=""
+        />
         <div className="flex justify-start w-full lg:w-1/2 items-start flex-col gap-4">
           <h2 className="text-[32px] sm:text-[45px] leading-[1.3] font-extrabold text-white">
             Next generation relationship management
@@ -32,11 +74,60 @@ const Hero = () => {
           </a>
         </div>
         <div className="w-full flex justify-center items-center lg:w-1/2 ">
-          <img
-            src="/hero1.png"
-            className="lg:max-w-none max-w-[500px] w-full object-contain"
-            alt=""
-          />
+          <AnimatePresence mode="wait">
+            {images === 1 && (
+              <motion.img
+                variants={fadeInVariant}
+                animate="animate"
+                exit="exit"
+                initial="initial"
+                key={images}
+                src="/hero1.png"
+                className="lg:max-w-none max-w-[500px] w-full object-contain"
+                alt=""
+              />
+            )}
+            {images >= 2 && (
+              <div className="flex justify-start items-start flex-col gap-3">
+                {images >= 2 && (
+                  <motion.div
+                    variants={fadeInVariant}
+                    animate="animate"
+                    exit="exit"
+                    initial="initial"
+                  >
+                    <img
+                      src="/hero2.png"
+                      className="lg:max-w-none max-w-[500px] w-full object-contain"
+                      alt=""
+                    />
+                    {(images === 2 || images === 3) && (
+                      <div className="mt-3 ml-2 flex justify-start items-center gap-1">
+                        <div class="snippet" data-title="dot-flashing">
+                          <div class="stage">
+                            <div class="dot-flashing"></div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+
+                {images === 4 && (
+                  <motion.img
+                    variants={fadeInVariant}
+                    animate="animate"
+                    exit="exit"
+                    initial="initial"
+                    key={images}
+                    src="/hero3.png"
+                    className="lg:max-w-none max-w-[500px] w-full object-contain"
+                    alt=""
+                  />
+                )}
+              </div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
