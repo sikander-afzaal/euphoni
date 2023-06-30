@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .wrapper {
+    @apply flex justify-start items-center w-full flex-col;
+  }
+  .contain {
+    @apply w-[90%] flex max-w-[1040px];
+  }
+  body {
+    @apply bg-body;
+  }
+}
