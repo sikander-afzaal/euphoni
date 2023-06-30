@@ -12,7 +12,7 @@
     @apply w-[90%] flex max-w-[1040px];
   }
   body {
-    @apply bg-body;
+    @apply bg-body overflow-x-hidden;
   }
 }
 

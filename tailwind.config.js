@@ -10,6 +10,9 @@ export default {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        hero: "url('/glow.svg')",
+      },
     },
   },
   plugins: [],

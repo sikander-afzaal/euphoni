@@ -37,13 +37,15 @@ const Hero = () => {
   }, [images]);
 
   return (
-    <section className="wrapper ">
-      <div className="contain pt-3 sm:pt-8 lg:pt-[80px] min-h-[700px] h-screen relative isolate lg:flex-row flex-col justify-between gap-6 sm:gap-10 items-start">
+    <section className="wrapper relative md:h-screen overflow-hidden min-h-[570px] isolate ">
+      <div className="absolute inset-0  -z-10  pointer-events-none overflow-hidden">
         <img
           src="/glow.svg"
-          className="absolute max-w-full left-1/2 -translate-x-1/2 bottom-0 -z-10"
+          className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10 max-w-none object-contain"
           alt=""
         />
+      </div>
+      <div className="contain pb-[60px] pt-[130px]  lg:flex-row flex-col justify-between gap-6 sm:gap-10 items-start">
         <div className="flex justify-start w-full lg:w-1/2 items-start flex-col gap-4">
           <h2 className="text-[32px] sm:text-[45px] leading-[1.3] font-extrabold text-white">
             Next generation relationship management
@@ -73,7 +75,7 @@ const Hero = () => {
             </svg>
           </a>
         </div>
-        <div className="w-full flex justify-center items-center lg:w-1/2 ">
+        <div className="w-full min-h-[350px] flex justify-center items-start lg:w-1/2 ">
           <AnimatePresence mode="wait">
             {images === 1 && (
               <motion.img
