@@ -9,7 +9,7 @@
     @apply flex justify-start items-center w-full flex-col;
   }
   .contain {
-    @apply w-[90%] flex max-w-[1040px];
+    @apply w-[90%] flex max-w-[1070px];
   }
   body {
     @apply bg-body overflow-x-hidden;

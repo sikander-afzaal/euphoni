@@ -21,18 +21,18 @@ const Hero = () => {
     },
   };
   useEffect(() => {
-    // const timeout = setTimeout(() => {
-    //   setImages((prev) => {
-    //     if (prev === 4) {
-    //       return 1;
-    //     } else {
-    //       return (prev += 1);
-    //     }
-    //   });
-    // }, 3000);
+    const timeout = setTimeout(() => {
+      setImages((prev) => {
+        if (prev === 4) {
+          return 1;
+        } else {
+          return (prev += 1);
+        }
+      });
+    }, 3000);
 
     return () => {
-      // clearTimeout(timeout);
+      clearTimeout(timeout);
     };
   }, [images]);
 
@@ -83,7 +83,7 @@ const Hero = () => {
                 animate="animate"
                 exit="exit"
                 key={images}
-                className="lg:max-w-none max-w-[500px] w-full flex justify-start items-start flex-col gap-4 p-4 rounded-lg bg-white "
+                className="lg:max-w-none max-w-[600px] w-full flex justify-start items-start flex-col gap-4 p-4 rounded-lg bg-white "
                 initial="initial"
               >
                 <div className="flex justify-start items-center gap-3 w-full">
@@ -171,7 +171,7 @@ const Hero = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="bg-black w-16 h-16 rounded-lg"></div>
+                  <div className="bg-black min-w-[64px] w-16 h-16 rounded-lg"></div>
                 </div>
               </motion.div>
               // <motion.img
@@ -190,11 +190,35 @@ const Hero = () => {
                     exit="exit"
                     initial="initial"
                   >
-                    <img
+                    <div className="lg:max-w-none max-w-[600px] w-full flex justify-start items-center gap-2 p-4 text-blue-500 rounded-lg bg-white ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="min-w-[20px] h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                        />
+                      </svg>
+                      <p className="text-black text-xs sm:text-sm font-medium">
+                        Who are my{" "}
+                        <span className="text-blue-500">
+                          mutual connections
+                        </span>{" "}
+                        with Alex and where do they{" "}
+                        <span className="text-blue-500">work</span>?
+                      </p>
+                    </div>
+                    {/* <img
                       src="/hero2.png"
-                      className="lg:max-w-none max-w-[500px] w-full object-contain"
+                      className="lg:max-w-none max-w-[600px] w-full object-contain"
                       alt=""
-                    />
+                    /> */}
                     {(images === 2 || images === 3) && (
                       <div className="mt-3 ml-2 flex justify-start items-center gap-1">
                         <div class="snippet" data-title="dot-flashing">
@@ -208,16 +232,25 @@ const Hero = () => {
                 )}
 
                 {images === 4 && (
-                  <motion.img
+                  <motion.div
                     variants={fadeInVariant}
                     animate="animate"
                     exit="exit"
                     initial="initial"
                     key={images}
                     src="/hero3.png"
-                    className="lg:max-w-none max-w-[500px] w-full object-contain"
+                    className="lg:max-w-none max-w-[600px] w-full flex justify-start items-center gap-2 p-4 text-blue-500 rounded-lg bg-white "
                     alt=""
-                  />
+                  >
+                    <div className="bg-black min-w-[32px] rounded h-8"></div>
+                    <p className="text-black text-xs sm:text-sm font-medium">
+                      Alex and you are mutually connected to{" "}
+                      <span className="text-blue-500">Kristie Brown</span> and{" "}
+                      <span className="text-blue-500">Ian Calloway</span> who
+                      both work in tech sales roles at{" "}
+                      <span className="text-blue-500">Apple</span>
+                    </p>
+                  </motion.div>
                 )}
               </div>
             )}
