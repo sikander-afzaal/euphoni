@@ -21,18 +21,18 @@ const Hero = () => {
     },
   };
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setImages((prev) => {
-        if (prev === 4) {
-          return 1;
-        } else {
-          return (prev += 1);
-        }
-      });
-    }, 3000);
+    // const timeout = setTimeout(() => {
+    //   setImages((prev) => {
+    //     if (prev === 4) {
+    //       return 1;
+    //     } else {
+    //       return (prev += 1);
+    //     }
+    //   });
+    // }, 3000);
 
     return () => {
-      clearTimeout(timeout);
+      // clearTimeout(timeout);
     };
   }, [images]);
 
@@ -78,16 +78,108 @@ const Hero = () => {
         <div className="w-full min-h-[350px] flex justify-center items-start lg:w-1/2 ">
           <AnimatePresence mode="wait">
             {images === 1 && (
-              <motion.img
+              <motion.div
                 variants={fadeInVariant}
                 animate="animate"
                 exit="exit"
-                initial="initial"
                 key={images}
-                src="/hero1.png"
-                className="lg:max-w-none max-w-[500px] w-full object-contain"
-                alt=""
-              />
+                className="lg:max-w-none max-w-[500px] w-full flex justify-start items-start flex-col gap-4 p-4 rounded-lg bg-white "
+                initial="initial"
+              >
+                <div className="flex justify-start items-center gap-3 w-full">
+                  <div className="bg-black w-14 h-14 rounded-md"></div>
+                  <div
+                    className="flex
+                  flex-col  justify-start items-start gap-1"
+                  >
+                    <h4
+                      className="text-black
+                    leading-[1] font-semibold text-2xl"
+                    >
+                      Hearth AI
+                    </h4>
+                    <p
+                      className="text-black
+                    leading-[1] text-opacity-60 text-base font-medium"
+                    >
+                      Daily Briefing
+                    </p>
+                  </div>
+                </div>
+                <div className="flex justify-between w-full  items-start">
+                  <div className="flex justify-start items-start flex-col gap-2">
+                    <div className="flex justify-start items-center gap-5">
+                      <p className="text-blue-500 text-sm font-medium">
+                        Alex Perez
+                      </p>
+                      <a href="#" className="text-blue-500 text-sm font-medium">
+                        Linkedin
+                      </a>
+                      <a href="#" className="text-blue-500 text-sm font-medium">
+                        Twitter
+                      </a>
+                    </div>
+                    <div className="flex justify-start items-start flex-col gap-3">
+                      <div className="flex justify-start items-start flex-col gap-0.5">
+                        <p className="text-black font-semibold text-sm">
+                          1. Current role and location
+                        </p>
+                        <p className="text-black font-normal text-sm">
+                          - Co-founder & Partner at YGen, United States
+                        </p>
+                      </div>
+                      <div className="flex justify-start items-start flex-col gap-0.5">
+                        <p className="text-black font-semibold text-sm">
+                          1. Current role and location
+                        </p>
+                        <p className="text-black font-normal text-sm">
+                          - Co-founder & Partner at YGen, United States
+                        </p>
+                      </div>
+                      <div className="flex justify-start items-start flex-col gap-0.5">
+                        <p className="text-black font-semibold text-sm">
+                          1. Current role and location
+                        </p>
+                        <p className="text-black font-normal text-sm">
+                          - Co-founder & Partner at YGen, United States
+                        </p>
+                      </div>
+                      <div className="flex justify-start items-start flex-col gap-0.5">
+                        <p className="text-black font-semibold text-sm">
+                          1. Current role and location
+                        </p>
+                        <p className="text-black font-normal text-sm">
+                          - Co-founder & Partner at YGen, United States
+                        </p>
+                      </div>
+                      <div className="flex justify-start items-start flex-col gap-0.5">
+                        <p className="text-black font-semibold text-sm">
+                          1. Current role and location
+                        </p>
+                        <p className="text-black font-normal text-sm">
+                          - Co-founder & Partner at YGen, United States
+                        </p>
+                      </div>
+                      <p className="text-black font-normal text-sm">
+                        Alex's personel website is{" "}
+                        <a
+                          href="#"
+                          className="text-blue-500 underline font-bold"
+                        >
+                          https://xyz.com
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-black w-16 h-16 rounded-lg"></div>
+                </div>
+              </motion.div>
+              // <motion.img
+
+              //   src="/hero1.png"
+              //   c
+              //   alt=""
+              // />
             )}
             {images >= 2 && (
               <div className="flex justify-start items-start flex-col gap-3">
