@@ -46,7 +46,19 @@ const Hero = () => {
         />
       </div>
       <div className="contain pb-[60px] pt-[130px]  lg:flex-row flex-col justify-between gap-6 sm:gap-10 items-start">
-        <div className="flex justify-start w-full lg:w-1/2 items-start flex-col gap-4">
+        <div className="flex justify-start w-full lg:w-1/2 items-center text-center lg:text-left lg:items-start flex-col gap-4">
+          <div class="inline-flex relative before:absolute overflow-hidden rounded-full before:inset-1 before:bg-purple-500 before:blur-md ">
+            <a
+              class="btn-sm py-0.5 text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(theme(colors.purple.500),_theme(colors.purple.500))_padding-box,_linear-gradient(theme(colors.purple.500),_theme(colors.purple.200)_75%,_theme(colors.transparent)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/50 before:rounded-full before:pointer-events-none shadow rounded-full px-5"
+              href="#0"
+            >
+              <span class="relative inline-flex items-center">
+                {" "}
+                Euphoni AI is now in beta{" "}
+                <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"></span>
+              </span>
+            </a>
+          </div>
           <h2 className="text-[32px] sm:text-[45px] leading-[1.3] font-extrabold text-white">
             Next generation relationship management
           </h2>
